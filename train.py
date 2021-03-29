@@ -40,7 +40,7 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
         label = label.contiguous().view(-1).cuda()       
         
         loss = criterion(out, label)
-        losses.update(loss.data[0],image.size(0))
+        losses.update(loss.item(),image.size(0))
         
         # compute gradient and do SGD step
         optimizer.zero_grad()
